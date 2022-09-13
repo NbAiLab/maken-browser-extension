@@ -1,0 +1,44 @@
+{
+  "manifest_version": 2,
+  "name": "Maken similarity service",
+  "short_name": "Maken similarity service",
+  "description": "Maken similarity for nb.no book and image search results",
+  "version": "0.0.5",
+  "icons": {
+    "32": "icons/icon32.png",
+    "64": "icons/icon64.png",
+    "128": "icons/icon128.png"
+  },
+  "homepage_url": "https://ai.nb.no/",
+  "author": "Javier de la Rosa (National Library of Norway AI-Lab)",
+  "background": {
+    "scripts": [
+      "background_script.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.nb.no/*"
+      ],
+      "js": [
+        "insQ.js",
+        "content_script.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_icon": "icons/icon.png",
+    "default_title": "maken-browser-extension"
+  },
+  "permissions": [
+      "storage",
+      "https://nb.no/*",
+      "https://www.nb.no/*",
+      "https://api.nb.no/*",
+      "http://nb.no/*",
+      "http://www.nb.no/*",
+      "http://api.nb.no/*"
+  ]
+}
